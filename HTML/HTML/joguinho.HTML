@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <title>Jogo de adivinhação</title>
+<head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    .cabecalho {
+            background-color: #eb7405;
+            display: flex;
+            flex-direction: row;
+        }
+
+        .elementos-cabecalho {
+            display: flex;
+            flex-direction: row;
+            height: 100px;
+            padding-left: 20%;
+            display: flex;
+            justify-content: right;
+        }
+
+        .item-cabecalho {
+            margin-right: 22px;
+            font-size: 25px;
+            padding-top: 40px;
+            color: bisque;
+            text-decoration: none;
+            display: flex;
+ 
+        }
+
+        .titulo {
+            padding-left: 50px;
+            padding-top: 18px;
+            font-size: 60px;
+            padding-right: 400px;
+            color: rgb(245, 220, 188);
+        }
+        .botão{
+            background: #0066A2;
+	        color: white;
+	        border-style: outset;
+	        border-color: #0066A2;
+	        height: 50px;
+	        width: 100px;
+	        font: bold15px arial,sans-serif;
+	        text-shadow: none;
+        }
+        .elementosbotão{
+            justify-content: center;
+            background-color: antiquewhite;
+            
+           
+            
+        }
+</style>
+</head>
+    <body>
+        <header class="cabecalho">
+            <h1 class="titulo"> Jogos </h1>
+            <div class="elementos-cabecalho">
+                <a href="index.HTML" class="item-cabecalho">Inicio</a>
+            </div>
+        </header>
+    <input class="elementosbotão" type="text" id="numero" name="numero">
+    <button class="botão" type="button" onclick="Aleatório()">Responder</button>
+<p class="elementosbotão" id="resultado"></p>
+<p class="elementosbotão" id="aleatorio"></p>
+<div id="saida" class="saida"></div>
+    <script>
+        function Aleatório(){
+            numero1 = document.getElementById("numero").value;
+            aleatorio = Math.floor(Math.random() * 101)
+
+            if(numero1 == aleatorio){
+                tela = "Parabéns! Você acertou!";
+            } else {
+                tela = "ParabensVocê errou!";
+            }
+            document.getElementById("resultado").innerHTML = tela;
+            document.getElementById("aleatorio").innerHTML = aleatorio;
+
+            const saida = document.getElementById('saida');
+
+        const entrada = document.getElementById('numero');
+
+        const historico = [];
+
+        function addNumber() {
+            const value = entrada.value;
+            historico.push(value);
+            document.getElementById('saida').innerHTML = historico;
+        }
+
+        function limparCampo() {
+            document.getElementById('numero').value = ''
+        }
+
+        document.querySelector('#submit').onclick = addNumber;
+            
+        }
+    </script>
+    </body>
+</html>
